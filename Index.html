@@ -13,6 +13,12 @@
     <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-60002552286b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
     <title>OLEA IMMOBILIER | Expert Promoteur Immobilier Abidjan</title>
+
+    <!-- GSAP (nécessaire pour la nouvelle galerie) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<!-- jQuery (nécessaire pour la galerie) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <!-- Polices Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -220,52 +226,26 @@
     </section>
 
     <!-- ===== SECTION 5: GALERIE PHOTOS (RÉALISATIONS) ===== -->
-    <section id="galerie">
-        <div class="container">
-            <div class="section-title" data-aos="fade-down">
-                <h2>Nos Réalisations</h2>
-                <p>Des projets qui parlent d'eux-mêmes</p>
-            </div>
+<section id="galerie">
+    <div class="container">
+        <div class="section-title" data-aos="fade-down">
+            <h2>Nos Réalisations</h2>
+            <p>Des projets qui parlent d'eux-mêmes</p>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Promotion immobilière Olea Immobilier - Villa contemporaine" 
-                     loading="lazy">
-                <div class="gallery-caption">Villa témoin - Riviera</div>
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Vente appartement Abidjan - Résidence de standing" 
-                     loading="lazy">
-                <div class="gallery-caption">Résidence Les Perles</div>
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Olea Immobilier chantier - Lotissement" 
-                     loading="lazy">
-                <div class="gallery-caption">Lotissement - Bingerville</div>
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Construction villa Abidjan OLEA" 
-                     loading="lazy">
-                <div class="gallery-caption">Chantier en cours</div>
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
-                <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Terrains viabilisés OLEA IMMOBILIER" 
-                     loading="lazy">
-                <div class="gallery-caption">Terrains viabilisés</div>
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
-                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Appartement moderne Abidjan" 
-                     loading="lazy">
-                <div class="gallery-caption">Appartement témoin</div>
-            </div>
+    </div>
+    
+    <!-- NOUVELLE GALERIE INTERACTIVE -->
+    <div class="main">
+        <div class="mainBoxes fs"></div>
+        <div class="mainClose">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" fill="none">
+                <circle cx="30" cy="30" r="30" fill="#000" opacity="0.4" />
+                <path d="M15,16L45,46 M45,16L15,46" stroke="#000" stroke-width="3.5" opacity="0.5" />
+                <path d="M15,15L45,45 M45,15L15,45" stroke="#fff" stroke-width="2" />
+            </svg>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== SECTION 6: CARTE GOOGLE MAPS (INTERACTIVE) ===== -->
     <section id="map-section">
