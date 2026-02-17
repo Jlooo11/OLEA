@@ -173,7 +173,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Changé : maintenant ils restent sur la même ligne */
 }
 
 .logo {
@@ -232,30 +232,48 @@ header.scrolled {
     }
 }
 
-/* Smartphones (≤767px) */
+/* Smartphones (≤767px) - CORRIGÉ : logos sur la même ligne */
 @media (max-width: 767px) {
     .logo-group {
-        flex-direction: column;
-        gap: 5px;
-        align-items: flex-start;
+        flex-direction: row; /* Changé : on garde les logos en ligne */
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-start;
+        width: auto;
+        max-width: 100%;
     }
     .logo {
-        height: 45px;
+        height: 40px; /* Légèrement plus petit pour tenir sur une ligne */
     }
     .logo img {
-        max-width: 110px;
+        max-width: 100px; /* Réduit pour tenir sur la ligne */
     }
     .logo-separator {
-        width: 40px;
-        height: 2px;
-        margin: 2px 0;
+        width: 2px; /* On garde le séparateur vertical */
+        height: 30px; /* Plus petit */
+        margin: 0 3px;
     }
     .navbar {
         height: auto;
-        padding: 10px 0;
+        padding: 8px 0;
     }
 }
 
+/* Très petits smartphones (≤480px) */
+@media (max-width: 480px) {
+    .logo-group {
+        gap: 5px;
+    }
+    .logo {
+        height: 35px;
+    }
+    .logo img {
+        max-width: 85px;
+    }
+    .logo-separator {
+        height: 25px;
+    }
+}
 .nav-links {
     display: flex;
     gap: 35px;
@@ -607,6 +625,18 @@ header.scrolled {
 .frais-dossier p {
     font-size: 1.2rem;
     color: var(--bleu);
+}
+
+/* Centrage du frais de dossier sur tous les écrans */
+.frais-dossier {
+    text-align: center !important; /* Force le centrage */
+}
+
+/* Alternative : si vous préférez un centrage conditionnel */
+@media (min-width: 768px) {
+    .frais-dossier {
+        text-align: center;
+    }
 }
 
 /* ---------- SECTIONS COMMUNES ---------- */
