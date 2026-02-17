@@ -15,10 +15,10 @@
     <title>OLEA IMMOBILIER | Expert Promoteur Immobilier Abidjan</title>
 
     <!-- GSAP (nécessaire pour la nouvelle galerie) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-<!-- jQuery (nécessaire pour la galerie) -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery (nécessaire pour la galerie) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <!-- Polices Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,14 +36,22 @@
     <!-- ===== HEADER FIXE ===== -->
     <header id="main-header">
         <div class="container navbar">
-            <div class="logo">
-                <img src="img/WhatsApp Image 2026-01-20 at 11.45.01.jpg" alt="OLEA IMMOBILIER Logo Expert Promoteur" title="OLEA IMMOBILIER">
+            <div class="logo-group">
+                <div class="logo logo-groupe">
+                    <img src="LOGO- OLEA GLOBAL SERVICES-01.jpg.jpg" alt="Groupe OLEA Global Services" title="Groupe OLEA Global Services">
+                </div>
+                <div class="logo-separator"></div>
+                <div class="logo logo-immobilier">
+                    <img src="img/WhatsApp Image 2026-01-20 at 11.45.01.jpg" alt="OLEA IMMOBILIER" title="OLEA IMMOBILIER">
+                </div>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#hero" class="nav-link active">Accueil</a></li>
+                    <li><a href="#groupe-olea" class="nav-link">Le Groupe</a></li>
                     <li><a href="#services" class="nav-link">Expertise</a></li>
                     <li><a href="#programmes" class="nav-link">Programmes</a></li>
+                    <li><a href="#investissement" class="nav-link">Investissement</a></li>
                     <li><a href="#equipe" class="nav-link">Équipe</a></li>
                     <li><a href="#galerie" class="nav-link">Réalisations</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -59,15 +67,54 @@
     <section id="hero">
         <div class="container hero-content" data-aos="fade-up" data-aos-duration="1200">
             <h1>Bâtir votre avenir,<br>un terrain et un logement à la fois.</h1>
-            <p>Expertise en aménagement foncier, promotion immobilière et vente de matériaux de construction en Côte d'Ivoire.</p>
+            <p>Expertise en aménagement foncier et promotion immobilière par le <strong>Groupe OLEA Global Services</strong>, Promoteur Immobilier Agréé.</p>
             <a href="#programmes" class="btn btn-primary btn-large">
-                <i class="fas fa-arrow-down"></i> Consulter nos programmes immobiliers
+                <i class="fas fa-arrow-down"></i> Découvrir nos programmes immobiliers
             </a>
         </div>
         <div class="hero-overlay"></div>
     </section>
 
-    <!-- ===== SECTION 2: NOS SERVICES (EXPERTISE) ===== -->
+    <!-- ===== SECTION 2: LE GROUPE OLEA ===== -->
+    <section id="groupe-olea">
+        <div class="container">
+            <div class="section-title" data-aos="fade-down">
+                <h2>Le Groupe OLEA</h2>
+                <p>Une expertise pluridisciplinaire au service de votre projet immobilier</p>
+            </div>
+            <div class="groupe-content" data-aos="fade-up">
+                <div class="groupe-text">
+                    <h3>OLEA IMMOBILIER, une branche du Groupe OLEA Global Services SARL</h3>
+                    <p>Le Groupe OLEA Global Services est une entreprise pluridisciplinaire spécialisée dans le développement de programmes immobiliers, le lotissement et l'expertise foncière. Agréé par le ministère, nous vous accompagnons dans toutes les étapes de votre projet immobilier avec professionnalisme et transparence.</p>
+                    <div class="groupe-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="10">+ 20</span>
+                            <span class="stat-label">Années d'expertise</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="500">100</span>
+                            <span class="stat-label">Projets réalisés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1000">200</span>
+                            <span class="stat-label">Familles logées</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="groupe-services">
+                    <h4>Nos services de base :</h4>
+                    <ul class="groupe-services-list">
+                        <li><i class="fas fa-check-circle"></i> Aménagement Foncier & Lotissement</li>
+                        <li><i class="fas fa-check-circle"></i> Promotion & Construction</li>
+                        <li><i class="fas fa-check-circle"></i> Expertise & Gestion Immobilière</li>
+                        <li><i class="fas fa-check-circle"></i> Vente de Matériaux de Construction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: NOS SERVICES (EXPERTISE) ===== -->
     <section id="services">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -99,31 +146,28 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 3: PROGRAMMES IMMOBILIERS ===== -->
+    <!-- ===== SECTION 4: PROGRAMMES IMMOBILIERS ===== -->
     <section id="programmes">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
-                <h2>Nos Programmes Immobiliers</h2>
-                <p>Des opportunités exclusives à Abidjan et dans ses communes</p>
+                <h2>Nos cités OLEA 1</h2>
+                <p>Des opportunités exclusives à Songon Kassemble Nord</p>
             </div>
             <div class="programmes-grid">
-                
-                <!-- PROGRAMME 1 : Résidence OLEA (Villas) -->
+                <!-- PROGRAMME 1 -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="programme-img-container">
-                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        <img src="PHOTO-2026-02-17-15-16-51-2.jpg" 
                              alt="Promotion immobilière Olea Immobilier - Villa moderne haut standing" 
                              class="programme-img"
                              loading="lazy">
-                        <span class="badge">Neuf</span>
                     </div>
                     <div class="programme-content">
-                        <h3>Résidence OLEA (Villas)</h3>
-                        <p><i class="fas fa-location-dot"></i> Bingerville – 4 pièces, jardin privatif, piscine, sécurisé.</p>
+                        <h3>Villa basse</h3>
+                        <p><i class="fas fa-location-dot"></i> 3 pièces - séjour + Salle à manger, dégagement, terrasse entrée, cuisine, 2 chambres, sas, salle d‘eau.</p>
                         <div class="programme-features">
-                            <span><i class="fas fa-bed"></i> 4 ch.</span>
-                            <span><i class="fas fa-bath"></i> 3 bains</span>
-                            <span><i class="fas fa-car"></i> Parking</span>
+                            <span><i class="fas fa-bed"></i> 2 ch.</span>
+                            <span><i class="fas fa-bath"></i> 2 bains</span>
                         </div>
                         <a href="https://wa.me/2250708185633?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Programme%20R%C3%A9sidence%20OLEA%20(Villas)%20%E2%80%93%20Bingerville.%20Merci%20de%20me%20contacter." 
                            target="_blank" 
@@ -133,47 +177,44 @@
                     </div>
                 </article>
 
-                <!-- PROGRAMME 2 : Les Perles (Appartements) -->
+                <!-- PROGRAMME 2 -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="programme-img-container">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        <img src="PHOTO-2026-02-17-15-16-51.jpg" 
                              alt="Vente appartement Abidjan - Les Perles, standing" 
                              class="programme-img"
                              loading="lazy">
-                        <span class="badge">Dernières unités</span>
                     </div>
                     <div class="programme-content">
-                        <h3>Les Perles (Appartements)</h3>
-                        <p><i class="fas fa-location-dot"></i> Cocody – 3 pièces, vue lagunaire, clim, groupe électrogène.</p>
+                        <h3>Villa basse</h3>
+                        <p><i class="fas fa-location-dot"></i>3 pièces - séjour + Salle à manger, dégagement, terrasse entrée, cuisine, 2 chambres, sas, salle d‘eau.</p>
                         <div class="programme-features">
-                            <span><i class="fas fa-bed"></i> 3 ch.</span>
+                            <span><i class="fas fa-bed"></i> 2 ch.</span>
                             <span><i class="fas fa-bath"></i> 2 bains</span>
-                            <span><i class="fas fa-elevator"></i> Ascenseur</span>
                         </div>
                         <a href="https://wa.me/2250708185633?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Programme%20Les%20Perles%20(Appartements)%20%E2%80%93%20Cocody.%20Merci%20de%20me%20donner%20les%20disponibilit%C3%A9s." 
                            target="_blank" 
                            class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Réserver mon appartement
+                            <i class="fab fa-whatsapp"></i> Réserver ma maison
                         </a>
                     </div>
                 </article>
 
-                <!-- PROGRAMME 3 : Cité Espérance (Mixte) -->
+                <!-- PROGRAMME 3 -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="programme-img-container">
-                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        <img src="PHOTO-2026-02-17-15-16-52.jpg" 
                              alt="Olea Immobilier chantier - Cité Espérance, terrains viabilisés" 
                              class="programme-img"
                              loading="lazy">
                         <span class="badge">Promo</span>
                     </div>
                     <div class="programme-content">
-                        <h3>Cité Espérance</h3>
-                        <p><i class="fas fa-location-dot"></i> Yopougon – Terrains viabilisés + logements économiques.</p>
+                        <h3>Villa Duplex</h3>
+                        <p><i class="fas fa-location-dot"></i>4 pièces - séjour + Salle à manger, dégagement, terrasse entrée, cuisine, sas + esc, buanderie, wc.</p>
                         <div class="programme-features">
-                            <span><i class="fas fa-vector-square"></i> 200-300 m²</span>
-                            <span><i class="fas fa-water"></i> Viabilisé</span>
-                            <span><i class="fas fa-bolt"></i> Électricité</span>
+                            <span><i class="fas fa-bed"></i> 3 ch.</span>
+                            <span><i class="fas fa-bath"></i> 2 bains</span>
                         </div>
                         <a href="https://wa.me/2250708185633?text=Bonjour%20Olea%20Immobilier%2C%20je%20souhaite%20contacter%20un%20commercial%20pour%20le%20programme%20Cit%C3%A9%20Esp%C3%A9rance%20(Yopougon)." 
                            target="_blank" 
@@ -186,7 +227,69 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 4: NOTRE ÉQUIPE ===== -->
+    <!-- ===== SECTION 5: INVESTISSEMENT SÉCURISÉ À N'ZIANOUAN ===== -->
+    <section id="investissement">
+        <div class="container">
+            <div class="section-title" data-aos="fade-down">
+                <h2>Investissement Sécurisé</h2>
+                <p>Terrains en vente à N'Zianouan</p>
+            </div>
+            
+            <div class="investissement-content" data-aos="fade-up">
+                <div class="investissement-card">
+                    <div class="investissement-header">
+                        <h3>N'Zianouan</h3>
+                        <p class="sous-titre">Sur l'autoroute du Nord</p>
+                    </div>
+                    
+                    <div class="investissement-details">
+                        <div class="detail-localisation">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>À 1h d'Abidjan et 30mn de Yamoussoukro</span>
+                        </div>
+                        
+                        <div class="detail-prix">
+                            <span class="label">Prix spécial</span>
+                            <span class="valeur">500 m² <strong>1.750.000 FCFA</strong></span>
+                        </div>
+                        
+                        <div class="badce-statut">
+                            <span class="badge-vert">APPROBATION & VIABILISATION EN COURS</span>
+                        </div>
+                        
+                        <div class="paiement-info">
+                            <h4><i class="fas fa-credit-card"></i> Facilités de paiement</h4>
+                            <p>Payable en <strong>12 mensualités</strong></p>
+                            <p><strong>Apport initial : 20%</strong></p>
+                        </div>
+                        
+                        <div class="documents-inclus">
+                            <h4><i class="fas fa-file-alt"></i> Dossier complet inclus :</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Dossier technique</li>
+                                <li><i class="fas fa-check-circle"></i> Attestation de Droit d'Usage Coutumier (ADUC fourni par le Ministère de la Construction)</li>
+                                <li><i class="fas fa-check-circle"></i> Compulsoire</li>
+                                <li><i class="fas fa-check-circle"></i> Encadrement de bornes</li>
+                                <li><i class="fas fa-check-circle"></i> Plaques de noms</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="frais-dossier">
+                            <p><strong>Frais de dossier : 75.000 FCFA</strong></p>
+                        </div>
+                        
+                        <a href="https://wa.me/2250708185633?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20les%20terrains%20%C3%A0%20N'Zianouan%20(500m%C2%B2%20%C3%A0%201.750.000%20FCFA).%20Merci%20de%20me%20donner%20plus%20d'informations." 
+                           class="btn btn-whatsapp" 
+                           target="_blank">
+                            <i class="fab fa-whatsapp"></i> Je réserve mon terrain
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 6: NOTRE ÉQUIPE ===== -->
     <section id="equipe">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -196,85 +299,81 @@
             <div class="team-grid">
                 <div class="team-member" data-aos="fade-up" data-aos-delay="100">
                     <div class="member-img">
-                        <img src="https://ui-avatars.com/api/?name=Jean+Konan&background=0E1C38&color=fff&size=200&length=2&font-size=0.50" 
+                        <img src="PHOTO-2026-02-12-16-19-04.jpg" 
                              alt="Directeur Général OLEA IMMOBILIER">
                     </div>
-                    <h4>Jean Konan</h4>
+                    <h4>YORO Saky Franck Olivier</h4>
                     <p>Directeur Général</p>
-                    <span class="member-desc">20 ans d'expertise</span>
+                    <span class="member-desc"></span>
                 </div>
                 <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                     <div class="member-img">
-                        <img src="https://ui-avatars.com/api/?name=Marie+Beugre&background=C9252C&color=fff&size=200&length=2&font-size=0.50" 
+                        <img src="https://ui-avatars.com/api/?name=SIDIBE+Grace+Olive+Cindy&background=C9252C&color=fff&size=200&length=2&font-size=0.50" 
                              alt="Responsable Commercial OLEA IMMOBILIER">
                     </div>
-                    <h4>Marie Beugré</h4>
-                    <p>Responsable Commerciale</p>
-                    <span class="member-desc">Vente & Relation client</span>
+                    <h4>SIDIBE Grace Olive Cindy</h4>
+                    <p>Assistante Commerciale et Marketing</p>
                 </div>
                 <div class="team-member" data-aos="fade-up" data-aos-delay="300">
                     <div class="member-img">
-                        <img src="https://ui-avatars.com/api/?name=Koffi+Amichia&background=FDB913&color=fff&size=200&length=2&font-size=0.50" 
+                        <img src="https://ui-avatars.com/api/?name=ESSE+Aya+Anna&background=FDB913&color=fff&size=200&length=2&font-size=0.50" 
                              alt="Directeur Technique OLEA IMMOBILIER">
                     </div>
-                    <h4>Koffi Amichia</h4>
-                    <p>Directeur Technique</p>
-                    <span class="member-desc">Ingénieur BTP</span>
+                    <h4>ESSE Aya Anna</h4>
+                    <p>Conductrice de travaux Technique</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION 5: GALERIE PHOTOS (RÉALISATIONS) ===== -->
-<section id="galerie">
-    <div class="container">
-        <div class="section-title" data-aos="fade-down">
-            <h2>Nos Réalisations</h2>
-            <p>Des projets qui parlent d'eux-mêmes</p>
+    <!-- ===== SECTION 7: GALERIE PHOTOS ===== -->
+    <section id="galerie">
+        <div class="container">
+            <div class="section-title" data-aos="fade-down">
+                <h2>Nos Réalisations</h2>
+                <p>Des projets qui parlent d'eux-mêmes</p>
+            </div>
         </div>
-    </div>
-    
-    <!-- NOUVELLE GALERIE INTERACTIVE -->
-    <div class="main">
-        <div class="mainBoxes fs"></div>
-        <div class="mainClose">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" fill="none">
-                <circle cx="30" cy="30" r="30" fill="#000" opacity="0.4" />
-                <path d="M15,16L45,46 M45,16L15,46" stroke="#000" stroke-width="3.5" opacity="0.5" />
-                <path d="M15,15L45,45 M45,15L15,45" stroke="#fff" stroke-width="2" />
-            </svg>
+        
+        <div class="main">
+            <div class="mainBoxes fs"></div>
+            <div class="mainClose">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" fill="none">
+                    <circle cx="30" cy="30" r="30" fill="#000" opacity="0.4" />
+                    <path d="M15,16L45,46 M45,16L15,46" stroke="#000" stroke-width="3.5" opacity="0.5" />
+                    <path d="M15,15L45,45 M45,15L15,45" stroke="#fff" stroke-width="2" />
+                </svg>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- ===== SECTION 6: CARTE GOOGLE MAPS (INTERACTIVE) ===== -->
+    <!-- ===== SECTION 8: CARTE GOOGLE MAPS ===== -->
     <section id="map-section">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
                 <h2>Notre Localisation</h2>
-                <p>Retrouvez-nous à notre siège social</p>
+                <p>Retrouvez-nous à notre siège social à Angré Djorobité</p>
             </div>
         </div>
         <div class="map-container" data-aos="fade-up">
-            <!-- Chargement lazy via iframe avec marqueur précis -->
             <iframe 
-                src="https://maps.google.com/maps?q=Abidjan%20Plateau%20Cocody&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4199.7402212927755!2d-3.9245398247674905!3d5.391336994587691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19340c9ad7511%3A0xb95fcb6e66ec09d1!2sGroupe%20Olea%20global%20services!5e1!3m2!1sfr!2sci!4v1771344432452!5m2!1sfr!2sci" 
                 width="100%" 
                 height="450" 
                 style="border:0;" 
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade"
-                title="Siège OLEA IMMOBILIER Abidjan">
+                title="Siège Groupe OLEA Global Services à Angré Djorobité">
             </iframe>
             <div class="map-overlay">
-                <span><i class="fas fa-map-pin"></i> Plateau, Abidjan</span>
-                <a href="https://maps.google.com/?q=Abidjan+Plateau+Cocody" target="_blank" class="btn btn-small">Itinéraire</a>
+                <span><i class="fas fa-map-pin"></i> Angré Djorobité, Abidjan</span>
+                <a href="https://maps.google.com/?q=Groupe+Olea+global+services+Abidjan" target="_blank" class="btn btn-small">Itinéraire</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION 7: FOOTER + CONTACT ===== -->
+    <!-- ===== SECTION 9: FOOTER + CONTACT ===== -->
     <footer id="contact">
         <div class="container">
             <div class="contact-container">
@@ -326,7 +425,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Abidjan, Côte d'Ivoire – Plateau, Av. Noguès</span>
+                            <span>Angré Djorobité, Abidjan, Côte d'Ivoire</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
@@ -341,13 +440,17 @@
                 </div>
             </div>
             
+            <div class="legal-mentions">
+                <p><strong>Promoteur Immobilier Agréé</strong> - Arrêté N° 23-00085/MCLU/DGLCV/CAPPI/Olga DU 10 OCTOBRE 2023</p>
+            </div>
+            
             <div class="copyright">
-                <p>© 2026 OLEA IMMOBILIER – Tous droits réservés. | <a href="#hero">Mentions légales</a></p>
+                <p>© 2026 OLEA IMMOBILIER – Une branche du Groupe OLEA Global Services SARL – Tous droits réservés. | <a href="#hero">Mentions légales</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- BOUTON WHATSAPP FLOTTANT (Permanent) -->
+    <!-- BOUTON WHATSAPP FLOTTANT -->
     <a href="https://wa.me/2250708185633?text=Bonjour%20Olea%20Immobilier%2C%20je%20souhaite%20obtenir%20des%20informations%20sur%20vos%20programmes." 
        class="whatsapp-float" 
        target="_blank"
