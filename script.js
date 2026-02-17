@@ -299,21 +299,15 @@ window.addEventListener('error', function(e) {
 
     // Images de la galerie (remplacez par vos propres images)
     var galleryImages = [
-        'PHOTO-2026-02-17-15-16-51-2.jpg',
-        'PHOTO-2026-02-17-15-16-51.jpg',
-        'PHOTO-2026-02-17-15-16-52.jpg',
-        'img/realisation4.jpg',
-        'img/realisation5.jpg',
-        'img/realisation6.jpg',
-        'img/realisation7.jpg',
-        'img/realisation8.jpg',
-        'img/realisation9.jpg',
-        'img/realisation10.jpg',
-        'img/realisation11.jpg',
-        'img/realisation12.jpg'
+        'img/PHOTO-2026-02-17-16-33-41-2.jpg',
+        'img/PHOTO-2026-02-17-16-33-41-3.jpg',
+        'img/PHOTO-2026-02-17-16-33-41.jpg',
+        'img/PHOTO-2026-02-17-16-33-42-3.jpg',
+        'img/PHOTO-2026-02-17-16-33-43-2.jpg',
+        'img/PHOTO-2026-02-17-16-33-43.jpg',
     ];
 
-    for (var i=0; i<12; i++){
+    for (var i=0; i<6; i++){
         if (i%4==0) column++;
 
         var b = document.createElement('div');    
