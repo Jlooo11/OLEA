@@ -174,8 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = '';
             }, 200);
             
-            // Tracking console (remplacer par GA plus tard)
-            console.log('📱 WhatsApp cliqué:', this.href);
+            // Tracking console
+            console.log('📱 WhatsApp cliqué vers le nouveau numéro: 0707452529');
         });
     });
 
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ---------- 10. ANIMATION AU SURVOL DES CARTES ----------
-    const cards = document.querySelectorAll('.service-card, .programme-card, .team-member');
+    const cards = document.querySelectorAll('.service-card, .programme-card, .team-member, .commodite-item');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transition = 'all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1)';
@@ -269,8 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ---------- 15. PRELOADER (SI AJOUTÉ PLUS TARD) ----------
-    // Simule la fin du chargement
+    // ---------- 15. PRELOADER ----------
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
     });
@@ -281,7 +280,6 @@ window.addEventListener('error', function(e) {
     console.log('🚨 Erreur détectée:', e.message);
 });
 
-// Script de la nouvelle galerie//
 // ===== GALERIE INTERACTIVE NOS RÉALISATIONS =====
 (function() {
     // Ne s'exécute que si on est sur la section galerie
