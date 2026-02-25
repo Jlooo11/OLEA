@@ -230,3 +230,205 @@ footer { background: var(--bleu); color: rgba(255,255,255,0.9); padding: 70px 0 
     .logo { height: 40px; }
     .logo img { max-width: 100px; }
 }
+
+/* ===== INVESTISSEMENT (VERSION COMPLÈTE) ===== */
+#investissement {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.investissement-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.investissement-card {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: var(--transition);
+}
+
+.investissement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -12px rgba(201, 37, 44, 0.2);
+}
+
+.investissement-header {
+    background: linear-gradient(135deg, var(--bleu) 0%, #1a2b4a 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.investissement-header h3 {
+    color: var(--jaune);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.investissement-header .sous-titre {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.investissement-details {
+    padding: 40px;
+}
+
+.detail-localisation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: var(--bleu);
+    margin-bottom: 25px;
+    padding: 15px;
+    background: var(--gris-clair);
+    border-radius: 12px;
+}
+
+.detail-localisation i {
+    color: var(--bordeaux);
+    font-size: 1.3rem;
+}
+
+.detail-prix {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff8e7, #fff);
+    border-radius: 16px;
+    margin-bottom: 25px;
+    border: 2px dashed var(--jaune);
+}
+
+.detail-prix .label {
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris-fonce);
+    margin-bottom: 10px;
+}
+
+.detail-prix .valeur {
+    font-size: 1.8rem;
+    color: var(--bleu);
+}
+
+.detail-prix .valeur strong {
+    font-size: 2.2rem;
+    color: var(--bordeaux);
+    margin-left: 10px;
+}
+
+.badge-vert {
+    display: inline-block;
+    background: var(--vert);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.paiement-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--orange);
+}
+
+.paiement-info h4 {
+    color: var(--bleu);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.paiement-info h4 i {
+    color: var(--orange);
+    margin-right: 8px;
+}
+
+.paiement-info p {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.documents-inclus {
+    margin-bottom: 25px;
+}
+
+.documents-inclus h4 {
+    color: var(--bleu);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.documents-inclus h4 i {
+    color: var(--vert);
+    margin-right: 8px;
+}
+
+.documents-inclus ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.documents-inclus li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.documents-inclus li i {
+    color: var(--vert);
+    font-size: 1.1rem;
+}
+
+.frais-dossier {
+    text-align: center !important;
+    padding: 15px;
+    border-top: 1px solid #dee2e6;
+    margin: 25px 0 20px;
+}
+
+.frais-dossier p {
+    font-size: 1.2rem;
+    color: var(--bleu);
+}
+
+/* Responsive pour investissement */
+@media (max-width: 768px) {
+    .investissement-header h3 {
+        font-size: 2rem;
+    }
+    .detail-prix .valeur {
+        font-size: 1.4rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .detail-prix .valeur strong {
+        font-size: 1.8rem;
+        margin-left: 0;
+    }
+    .documents-inclus ul {
+        grid-template-columns: 1fr;
+    }
+}
