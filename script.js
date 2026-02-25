@@ -1,25 +1,17 @@
-// ===== SCRIPT.JS - OLEA IMMOBILIER PREMIUM =====
-// Animations avancées • Micro-interactions • UI/UX Luxe
-
+// ===== SCRIPT.JS - VERSION COMPLÈTE =====
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // ---------- 1. INITIALISATION AOS AMÉLIORÉE ----------
+    // Initialisation AOS
     AOS.init({
         duration: 1000,
         once: false,
         mirror: true,
         offset: 120,
-        easing: 'cubic-bezier(0.2, 0.9, 0.4, 1)',
-        disable: false
+        easing: 'cubic-bezier(0.2, 0.9, 0.4, 1)'
     });
 
-    // ---------- 2. AJOUT DES PARTICLES ----------
-    const particlesDiv = document.createElement('div');
-    particlesDiv.className = 'particles';
-    document.body.prepend(particlesDiv);
-
-    // ---------- 3. GESTION DU MENU MOBILE PREMIUM ----------
+    // ===== MENU MOBILE =====
     const hamburger = document.getElementById('hamburger-btn');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-link');
@@ -29,15 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', function(e) {
             e.stopPropagation();
             navLinks.classList.toggle('active');
-            
             const icon = hamburger.querySelector('i');
             if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
                 document.body.style.overflow = 'hidden';
-                
-                // Animation d'ouverture
-                navLinks.style.animation = 'slideInLeft 0.5s';
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
@@ -46,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fermeture du menu avec animation
+    // Fermeture du menu au clic sur un lien
     navLinksItems.forEach(link => {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
@@ -61,20 +49,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ---------- 4. HEADER DYNAMIQUE AVANCÉ ----------
+    // Fermeture du menu au clic extérieur
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                navLinks.classList.remove('active');
+                const icon = hamburger?.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                document.body.style.overflow = 'auto';
+            }
+        }
+    });
+
+    // ===== HEADER DYNAMIQUE =====
     function handleHeaderScroll() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
-            header.style.transform = 'translateY(0)';
         } else {
             header.classList.remove('scrolled');
         }
     }
-
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll();
 
-    // ---------- 5. LIENS ACTIFS AVEC PROGRESS BAR ----------
+    // ===== LIENS ACTIFS =====
     const sections = document.querySelectorAll('section[id]');
     
     function updateActiveLink() {
@@ -96,11 +97,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
 
-    // ---------- 6. FORMULAIRE DE CONTACT AVEC ANIMATION ----------
+    // ===== FORMULAIRE DE CONTACT =====
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -110,130 +110,147 @@ document.addEventListener('DOMContentLoaded', function() {
             const originalText = submitBtn.innerHTML;
             
             // Animation de chargement
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
             submitBtn.disabled = true;
-            submitBtn.style.transform = 'scale(0.95)';
             
-            // Simulation d'envoi avec animation
+            // Simulation d'envoi
             setTimeout(() => {
-                // Notification personnalisée
                 showNotification('✅ Message envoyé avec succès !', 'success');
-                
                 contactForm.reset();
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                submitBtn.style.transform = 'scale(1)';
-                
-                // Animation de confirmation
-                submitBtn.style.backgroundColor = '#00C851';
-                submitBtn.style.color = 'white';
-                setTimeout(() => {
-                    submitBtn.style.backgroundColor = '';
-                    submitBtn.style.color = '';
-                }, 500);
-                
             }, 1500);
         });
     }
 
-    // ---------- 7. SYSTÈME DE NOTIFICATION PERSONNALISÉ ----------
+    // ===== NOTIFICATION =====
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
         notification.className = 'notification';
         notification.innerHTML = message;
         notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            background: ${type === 'success' ? 'linear-gradient(135deg, #00C851, #007E33)' : 'linear-gradient(135deg, #ff4444, #CC0000)'};
-            color: white;
-            padding: 18px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            z-index: 9999;
-            animation: slideInRight 0.5s, fadeOut 0.5s 2.5s;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            position: fixed; top: 100px; right: 30px; background: ${type === 'success' ? 'linear-gradient(135deg, #00C851, #007E33)' : 'linear-gradient(135deg, #ff4444, #CC0000)'};
+            color: white; padding: 18px 30px; border-radius: 50px; font-weight: 600; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            z-index: 9999; animation: slideInRight 0.5s, fadeOut 0.5s 2.5s;
         `;
-        
         document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
+        setTimeout(() => notification.remove(), 3000);
     }
 
-    // ---------- 8. BOUTONS WHATSAPP AVEC TRACKING ----------
-    const waButtons = document.querySelectorAll('.btn-whatsapp, .whatsapp-float');
-    waButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Animation au clic
-            this.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
+    // ===== CARROUSEL =====
+    function initCarousel() {
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        
+        if (!track || !slides.length) return;
+        
+        let currentIndex = 0;
+        const slideWidth = slides[0].offsetWidth + 20; // 20px de gap
+        const slidesToShow = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+        const maxIndex = Math.max(0, slides.length - slidesToShow);
+        
+        // Créer les dots
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i <= maxIndex; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+        
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, maxIndex));
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
             
-            // Tracking console
-            console.log('📱 WhatsApp cliqué vers le nouveau numéro: 0707452529');
+            // Mettre à jour les dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+        
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+        
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        
+        // Défilement automatique
+        let autoplayInterval = setInterval(nextSlide, 5000);
+        
+        // Pause au survol
+        track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+        track.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 5000);
         });
-    });
+        
+        // Recalculer au redimensionnement
+        window.addEventListener('resize', () => {
+            const newSlidesToShow = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+            const newMaxIndex = Math.max(0, slides.length - newSlidesToShow);
+            const newSlideWidth = slides[0].offsetWidth + 20;
+            
+            if (currentIndex > newMaxIndex) {
+                goToSlide(newMaxIndex);
+            } else {
+                track.style.transform = `translateX(-${currentIndex * newSlideWidth}px)`;
+            }
+        });
+    }
 
-    // ---------- 9. EFFET DE PARALLAXE SUR LA SECTION HÉRO ----------
+    // Initialiser le carrousel
+    initCarousel();
+
+    // ===== EFFET DE PARALLAXE SUR LE HERO =====
     window.addEventListener('scroll', function() {
-        const hero = document.getElementById('hero');
+        const hero = document.querySelector('#hero .hero-background');
         if (hero) {
             const scrolled = window.pageYOffset;
-            hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
         }
     });
 
-    // ---------- 10. ANIMATION AU SURVOL DES CARTES ----------
-    const cards = document.querySelectorAll('.service-card, .programme-card, .team-member, .commodite-item');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1)';
-        });
-    });
-
-    // ---------- 11. COMPTEUR DE STATISTIQUES (OPTIONNEL) ----------
-    function animateStats() {
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-target'));
-            const increment = target / 50;
-            let current = 0;
-            
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    stat.innerText = Math.ceil(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    stat.innerText = target;
-                }
-            };
-            
-            updateCounter();
-        });
-    }
-
-    // ---------- 12. FERMETURE DU MENU AU CLIC EXTÉRIEUR ----------
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 768) {
-            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                navLinks.classList.remove('active');
-                const icon = hamburger?.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-                document.body.style.overflow = 'auto';
+    // ===== ANIMATION DES STATISTIQUES =====
+    const stats = document.querySelectorAll('.stat-number');
+    const observerOptions = { threshold: 0.5 };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stat = entry.target;
+                const target = parseInt(stat.getAttribute('data-target'));
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        stat.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        stat.innerText = target;
+                    }
+                };
+                
+                updateCounter();
+                observer.unobserve(stat);
             }
-        }
-    });
+        });
+    }, observerOptions);
+    
+    stats.forEach(stat => observer.observe(stat));
 
-    // ---------- 13. RESIZE HANDLER ----------
+    // ===== GESTION DU RESIZE =====
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             navLinks.classList.remove('active');
@@ -246,10 +263,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ---------- 14. LAZY LOADING AVANCÉ ----------
+    // ===== LAZY LOADING DES IMAGES =====
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
     if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
@@ -268,173 +285,4 @@ document.addEventListener('DOMContentLoaded', function() {
             imageObserver.observe(img);
         });
     }
-
-    // ---------- 15. PRELOADER ----------
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-    });
 });
-
-// ---------- 16. GESTION DES ERREURS GLOBALES ----------
-window.addEventListener('error', function(e) {
-    console.log('🚨 Erreur détectée:', e.message);
-});
-
-// ===== GALERIE INTERACTIVE NOS RÉALISATIONS =====
-(function() {
-    // Ne s'exécute que si on est sur la section galerie
-    if (!document.querySelector('.mainBoxes')) return;
-    
-    var currentImg = undefined,
-        currentImgProps = {x:0, y:0},
-        isZooming = false,
-        column = -1,
-        mouse = {x:0, y:0},
-        delayedPlay;
-
-    // Nettoyer d'abord le conteneur
-    $('.mainBoxes').empty();
-
-    // Images de la galerie (remplacez par vos propres images)
-    var galleryImages = [
-        'img/PHOTO-2026-02-17-16-33-41-2.jpg',
-        'img/PHOTO-2026-02-17-16-33-41-3.jpg',
-        'img/PHOTO-2026-02-17-16-33-41.jpg',
-        'img/PHOTO-2026-02-17-16-33-42-3.jpg',
-        'img/PHOTO-2026-02-17-16-33-43-2.jpg',
-        'img/PHOTO-2026-02-17-16-33-43.jpg',
-    ];
-
-    for (var i=0; i<6; i++){
-        if (i%4==0) column++;
-
-        var b = document.createElement('div');    
-        $('.mainBoxes').append(b);
-        
-        gsap.set(b, {
-            attr:{ id:'b'+i, class:'photoBox pb-col'+column },
-            backgroundImage:'url(' + galleryImages[i] + ')',
-            backgroundSize:'cover',
-            backgroundPosition:'center',
-            overflow:'hidden',
-            x:[60,280,500][column],
-            width:400,
-            height:640,
-            borderRadius:20,
-            scale:0.5,
-            zIndex:1
-        });
-
-        b.tl = gsap.timeline({paused:true, repeat:-1})
-            .fromTo(b, {y:[-575,800,800][column], rotation:-0.05}, {duration:[40,35,26][column], y:[800,-575,-575][column], rotation:0.05, ease:'none'})
-            .progress(i%4/4);
-    }
-
-    function pauseBoxes(b){
-        var classStr = 'pb-col0';
-        if ($(b).hasClass('pb-col1')) classStr = 'pb-col1';
-        if ($(b).hasClass('pb-col2')) classStr = 'pb-col2';
-        for (var i=0; i<$('.mainBoxes').children().length; i++) {
-            var b = $('.mainBoxes').children()[i];
-            if ($(b).hasClass(classStr)) gsap.to(b.tl, {timeScale:0, ease:'sine'});    
-        }
-    }
-
-    function playBoxes(){ 
-        for (var i=0; i<$('.mainBoxes').children().length; i++) { 
-            var tl = $('.mainBoxes').children()[i].tl;
-            tl.play();
-            gsap.to(tl, {duration:0.4, timeScale:1, ease:'sine.in', overwrite:true});
-        }
-    }
-
-    // Initialisation quand la section est visible
-    function initGallery() {
-        var _tl = gsap.timeline({onStart:playBoxes})
-            .set('.main',        {perspective:800})
-            .set('.photoBox',    {opacity:1, cursor:'pointer'})
-            .set('.mainBoxes',   {left:'75%', xPercent:-50, width:1200, rotationX:14, rotationY:-15, rotationZ:10})
-            .set('.mainClose',   {autoAlpha:0, width:60, height:60, left:-30, top:-31, pointerEvents:'none'})
-            .fromTo('.main',     {autoAlpha:0},{duration:0.6, ease:'power2.inOut', autoAlpha:1}, 0.2);
-    }
-
-    $('.photoBox').on('mouseenter', function (e){
-        if (currentImg) return;
-        if (delayedPlay) delayedPlay.kill();
-        pauseBoxes(e.currentTarget);
-        var _t = e.currentTarget;
-        gsap.to('.photoBox', {duration:0.2, overwrite:'auto', opacity:function(i,t){return (t==_t)? 1:0.33 }});
-        gsap.fromTo(_t, {zIndex:100}, {duration:0.2, scale:0.62, overwrite:'auto', ease:'power3'});
-    });  
-
-    $('.photoBox').on('mouseleave', function (e){
-        if (currentImg) return;    
-        var _t = e.currentTarget;
-        
-        if (gsap.getProperty(_t, 'scale')>0.62) delayedPlay = gsap.delayedCall(0.3, playBoxes);
-        else playBoxes();
-
-        gsap.timeline()
-            .set(_t, {zIndex:1})
-            .to(_t, {duration:0.3, scale:0.5, overwrite:'auto', ease:'expo'}, 0)
-            .to('.photoBox', {duration:0.5, opacity:1, ease:'power2.inOut'}, 0);
-    });
-
-    $('.photoBox').on('click', function (e){
-        if (!isZooming){
-            isZooming = true;
-            gsap.delayedCall(0.8, function(){ isZooming=false });
-
-            if (currentImg) { 
-                gsap.timeline({defaults:{ease:'expo.inOut'}})
-                    .to('.mainClose', {duration:0.1, autoAlpha:0, overwrite:true}, 0)
-                    .to('.mainBoxes', {duration:0.5, scale:1, left:'75%', width:1200, rotationX:14, rotationY:-15, rotationZ:10, overwrite:true}, 0)
-                    .to('.photoBox', {duration:0.6, opacity:1, ease:'power4.inOut'}, 0)
-                    .to(currentImg, {duration:0.6, width:400, height:640, borderRadius:20, x:currentImgProps.x, y:currentImgProps.y, scale:0.5, rotation:0, zIndex:1}, 0);
-                currentImg=undefined;
-            }
-            else {
-                pauseBoxes(e.currentTarget);
-
-                currentImg = e.currentTarget;
-                currentImgProps.x = gsap.getProperty(currentImg, 'x');
-                currentImgProps.y = gsap.getProperty(currentImg, 'y');
-                
-                gsap.timeline({defaults:{duration:0.6, ease:'expo.inOut'}})
-                    .set(currentImg, {zIndex:100})
-                    .fromTo('.mainClose', {x:mouse.x, y:mouse.y, background:'rgba(0,0,0,0)'}, {autoAlpha:1, duration:0.3, ease:'power3.inOut'}, 0)
-                    .to('.photoBox', {opacity:0}, 0)
-                    .to(currentImg, {width:'100%', height:'100%', borderRadius:0, x:0, top:0, y:0, scale:1, opacity:1}, 0)
-                    .to('.mainBoxes', {duration:0.5, left:'50%', width:'100%', rotationX:0, rotationY:0, rotationZ:0}, 0.15)
-                    .to('.mainBoxes', {duration:5, scale:1.06, rotation:0.05, ease:'none'}, 0.65);
-            }
-        }
-    });
-
-    if (!!('ontouchstart' in window)) {
-        mouse.x = window.innerWidth-50;
-        mouse.y = 60;
-    }
-    else {
-        $('.main').on('mousemove', function (e){
-            mouse.x = e.x;
-            mouse.y = e.layerY;
-            if (currentImg) gsap.to('.mainClose', {duration:0.1, x:mouse.x, y:mouse.y, overwrite:'auto'});
-        });  
-    }
-
-    // Observer pour lancer l'animation quand la section est visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(initGallery, 100);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    const gallerySection = document.querySelector('#galerie .main');
-    if (gallerySection) {
-        observer.observe(gallerySection);
-    }
-})();

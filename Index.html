@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="OLEA IMMOBILIER - Expert Promoteur Immobilier en Côte d'Ivoire. Aménagement foncier, vente d'appartements à Abidjan, construction de villas et matériaux. Promoteur Immobilier Agréé Arrêté N° 23-00085/MCLU/DGLCV/CAPPI/Olga">
     
-    <!-- Open Graph pour les réseaux sociaux -->
+    <!-- Open Graph -->
     <meta property="og:title" content="OLEA IMMOBILIER | Expert Promoteur Immobilier">
     <meta property="og:description" content="Bâtir votre avenir, un terrain et un logement à la fois. Cité OLEA à Songon Kassemble et N'Zianouan - Villas basses et duplex de 3,4,5 pièces.">
     <meta property="og:type" content="website">
@@ -14,35 +14,32 @@
     
     <title>OLEA IMMOBILIER | Promoteur Immobilier Agréé - Cité OLEA Songon & N'Zianouan</title>
 
-    <!-- GSAP (nécessaire pour la nouvelle galerie) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-    <!-- jQuery (nécessaire pour la galerie) -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <!-- Polices Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome 6 (CDN) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS (Animate On Scroll) - Léger -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Notre CSS principal -->
+    <!-- Notre CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ===== HEADER FIXE ===== -->
+    <!-- ===== HEADER ===== -->
     <header id="main-header">
         <div class="container navbar">
             <div class="logo-group">
                 <div class="logo logo-groupe">
-                    <img src="LOGO- OLEA GLOBAL SERVICES-01.jpg.jpg" alt="Groupe OLEA Global Services" title="Groupe OLEA Global Services">
+                    <img src="LOGO- OLEA GLOBAL SERVICES-01.jpg.jpg" alt="Groupe OLEA Global Services">
                 </div>
                 <div class="logo-separator"></div>
                 <div class="logo logo-immobilier">
-                    <img src="img/WhatsApp Image 2026-01-20 at 11.45.01.jpg" alt="OLEA IMMOBILIER" title="OLEA IMMOBILIER">
+                    <img src="img/WhatsApp Image 2026-01-20 at 11.45.01.jpg" alt="OLEA IMMOBILIER">
                 </div>
             </div>
             <nav>
@@ -62,11 +59,14 @@
         </div>
     </header>
 
-    <!-- ===== SECTION 1: HERO ACCUEIL ===== -->
+    <!-- ===== SECTION HERO AVEC FILIGRANE ===== -->
     <section id="hero">
+        <div class="hero-background"></div>
+        <div class="hero-filigrane"></div>
         <div class="container hero-content" data-aos="fade-up" data-aos-duration="1200">
             <h1>Bâtir votre avenir,<br>un terrain et un logement à la fois.</h1>
             <p>Expertise en aménagement foncier et promotion immobilière par le <strong>Groupe OLEA Global Services</strong>, Promoteur Immobilier Agréé.</p>
+            <p class="hero-agrement"><i class="fas fa-certificate"></i> Arrêté N° 23-00085/MCLU/DGLCV/CAPPI/Olga DU 10 OCTOBRE 2023</p>
             <a href="#programmes" class="btn btn-primary btn-large">
                 <i class="fas fa-arrow-down"></i> Découvrir nos programmes immobiliers
             </a>
@@ -74,7 +74,7 @@
         <div class="hero-overlay"></div>
     </section>
 
-    <!-- ===== SECTION 2: LE GROUPE OLEA ===== -->
+    <!-- ===== SECTION GROUPE OLEA ===== -->
     <section id="groupe-olea">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -113,7 +113,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 3: NOS SERVICES (EXPERTISE) ===== -->
+    <!-- ===== SECTION SERVICES ===== -->
     <section id="services">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -145,21 +145,18 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 4: PROGRAMMES IMMOBILIERS ===== -->
+    <!-- ===== SECTION PROGRAMMES AVEC BOUTONS FICHE TECHNIQUE ===== -->
     <section id="programmes">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
-                <h2>Nos programmes "CITE OLEA 1 en cours d‘"</h2>
+                <h2>Nos programmes "CITE OLEA 1 en cours"</h2>
                 <p>Des opportunités exclusives à Songon Kassemble</p>
             </div>
             <div class="programmes-grid">
-                <!-- PROGRAMME 1 - Villa basse 3 pièces -->
+                <!-- Programme 1 -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="programme-img-container">
-                        <img src="PHOTO-2026-02-17-15-16-51-2.jpg" 
-                             alt="Villa basse 3 pièces Olea Immobilier - Cité OLEA Songon" 
-                             class="programme-img"
-                             loading="lazy">
+                        <img src="PHOTO-2026-02-17-15-16-51-2.jpg" alt="Villa basse 3 pièces" class="programme-img" loading="lazy">
                         <span class="badge">Économique</span>
                     </div>
                     <div class="programme-content">
@@ -171,57 +168,84 @@
                             <span><i class="fas fa-bath"></i> 1 bain</span>
                             <span><i class="fas fa-ruler-combined"></i> 82,42 m²</span>
                         </div>
-                        <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20basse%203%20pi%C3%A8ces%20%C3%A0%20Songon%20Kassemble.%20Merci%20de%20me%20contacter." 
-                           target="_blank" 
-                           class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Réserver ma villa
-                        </a>
+                        <div class="programme-buttons">
+                            <a href="fiche-technique-villa-3p.pdf" download class="btn btn-tech">
+                                <i class="fas fa-file-pdf"></i> Fiche technique
+                            </a>
+                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20basse%203%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Réserver
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- PROGRAMME 3 - Villa Duplex 4 pièces -->
+                <!-- Programme 2 -->
+                <article class="programme-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="programme-img-container">
+                        <img src="PHOTO-2026-02-17-15-16-51.jpg" alt="Villa basse 4 pièces" class="programme-img" loading="lazy">
+                        <span class="badge">Moyen standing</span>
+                    </div>
+                    <div class="programme-content">
+                        <h3>Villa basse 4 pièces</h3>
+                        <p><i class="fas fa-location-dot"></i> Cité OLEA - N'Zianouan</p>
+                        <p class="programme-description">Surface terrain 250 m² | Séjour/Salle à manger (42,86 m²), cuisine, 3 chambres, 3 salles de bain, terrasses.</p>
+                        <div class="programme-features">
+                            <span><i class="fas fa-bed"></i> 3 ch.</span>
+                            <span><i class="fas fa-bath"></i> 3 bains</span>
+                            <span><i class="fas fa-ruler-combined"></i> 132,63 m²</span>
+                        </div>
+                        <div class="programme-buttons">
+                            <a href="fiche-technique-villa-4p.pdf" download class="btn btn-tech">
+                                <i class="fas fa-file-pdf"></i> Fiche technique
+                            </a>
+                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20basse%204%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Réserver
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Programme 3 -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="programme-img-container">
-                        <img src="PHOTO-2026-02-17-15-16-52.jpg" 
-                             alt="Villa Duplex 4 pièces - Cité OLEA haut standing" 
-                             class="programme-img"
-                             loading="lazy">
+                        <img src="PHOTO-2026-02-17-15-16-52.jpg" alt="Villa Duplex 4 pièces" class="programme-img" loading="lazy">
                         <span class="badge">Haut standing</span>
                     </div>
                     <div class="programme-content">
                         <h3>Villa Duplex 4 pièces</h3>
-                        <p><i class="fas fa-location-dot"></i> Cité OLEA - Songon Kassemble</p>
+                        <p><i class="fas fa-location-dot"></i> Cité OLEA - N'Zianouan</p>
                         <p class="programme-description">Surface terrain 300 m² | RDC (145,10 m²) + Étage (130,15 m²), 3 chambres, dressing, 3 sdb, grands balcons.</p>
                         <div class="programme-features">
                             <span><i class="fas fa-bed"></i> 3 ch.</span>
                             <span><i class="fas fa-bath"></i> 3 bains</span>
                             <span><i class="fas fa-ruler-combined"></i> 275,25 m²</span>
                         </div>
-                        <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20Duplex%204%20pi%C3%A8ces%20haut%20standing.%20Merci%20de%20me%20contacter." 
-                           target="_blank" 
-                           class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Réserver ma villa
-                        </a>
+                        <div class="programme-buttons">
+                            <a href="fiche-technique-duplex-4p.pdf" download class="btn btn-tech">
+                                <i class="fas fa-file-pdf"></i> Fiche technique
+                            </a>
+                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20Duplex%204%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Réserver
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ===== NOUVELLE SECTION 5: LES CITÉS OLEA (Détails du PDF) ===== -->
+    <!-- ===== SECTION CITES OLEA ===== -->
     <section id="cites-olea">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
                 <h2>Les Cités OLEA</h2>
                 <p>Un concept architectural moderne au cœur des villes nouvelles</p>
             </div>
-            
             <div class="cites-olea-content" data-aos="fade-up">
                 <div class="cites-description">
                     <p>Les <strong>CITÉS OLEA</strong> sont un concept, une vision architecturale de plusieurs programmes immobiliers, composés de divers types de logements : villas basses, villas duplex et appartements, économiques, moyens et haut standing.</p>
                     <p>Conçus dans un esprit libre et ouvert, dans la pure tradition architecturale moderne, ces logements présentent un style simple et épuré, à travers des lignes assez racées et disciplinées, dans un design dominé par une volonté d'offrir des espaces internes et externes conviviaux, dans un cadre de vie agréable favorisant une parfaite mobilité et communication entre les pièces.</p>
                 </div>
-                
                 <div class="cites-chiffres">
                     <div class="chiffre-item">
                         <span class="chiffre">116</span>
@@ -240,65 +264,29 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 6: COMMODITÉS ET ÉQUIPEMENTS (du PDF) ===== -->
+    <!-- ===== SECTION COMMODITÉS ===== -->
     <section id="commodites">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
-                <h2>Commodités et Équipements de nos cités</h2>
+                <h2>Commodités et Équipements</h2>
                 <p>Des cités entièrement viabilisées et bitumées</p>
             </div>
-            
             <div class="commodites-grid" data-aos="fade-up">
-                <div class="commodite-item">
-                    <i class="fas fa-store"></i>
-                    <h4>Supérette & Espace détente</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-tree"></i>
-                    <h4>Jardin de repos et promenade</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-car-wash"></i>
-                    <h4>Lavage automobile intégré</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-child"></i>
-                    <h4>Aire de jeux enfants</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-building"></i>
-                    <h4>Club house</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-futbol"></i>
-                    <h4>Terrain de jeux sportif</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-users-cog"></i>
-                    <h4>Bureau de syndic</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4>Sécurité vidéo portier</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-video"></i>
-                    <h4>Réseau vidéosurveillance</h4>
-                </div>
-                <div class="commodite-item">
-                    <i class="fas fa-bell"></i>
-                    <h4>Systèmes alarme anti-intrusion</h4>
-                </div>
-            </div>
-            
-            <div class="commodites-footer" data-aos="fade-up">
-                <p><i class="fas fa-check-circle"></i> Installation et abonnement gratuit ligne téléphonique ORANGE CI TELECOM</p>
-                <p><i class="fas fa-check-circle"></i> Abonnement création paysagère et entretien espaces verts sur un an</p>
+                <div class="commodite-item"><i class="fas fa-store"></i><h4>Supérette & Espace détente</h4></div>
+                <div class="commodite-item"><i class="fas fa-tree"></i><h4>Jardin de repos et promenade</h4></div>
+                <div class="commodite-item"><i class="fas fa-car-wash"></i><h4>Lavage automobile intégré</h4></div>
+                <div class="commodite-item"><i class="fas fa-child"></i><h4>Aire de jeux enfants</h4></div>
+                <div class="commodite-item"><i class="fas fa-building"></i><h4>Club house</h4></div>
+                <div class="commodite-item"><i class="fas fa-futbol"></i><h4>Terrain de jeux sportif</h4></div>
+                <div class="commodite-item"><i class="fas fa-users-cog"></i><h4>Bureau de syndic</h4></div>
+                <div class="commodite-item"><i class="fas fa-shield-alt"></i><h4>Sécurité vidéo portier</h4></div>
+                <div class="commodite-item"><i class="fas fa-video"></i><h4>Réseau vidéosurveillance</h4></div>
+                <div class="commodite-item"><i class="fas fa-bell"></i><h4>Systèmes alarme anti-intrusion</h4></div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION 7: CONDITIONS COMMERCIALES & GARANTIES (du PDF) ===== -->
+    <!-- ===== SECTION CONDITIONS & GARANTIES ===== -->
     <section id="conditions">
         <div class="container">
             <div class="conditions-wrapper">
@@ -306,84 +294,58 @@
                     <h3><i class="fas fa-file-signature"></i> Nos Conditions Commerciales</h3>
                     <ul class="conditions-list">
                         <li><i class="fas fa-check"></i> Paiement des frais de dossier à la réservation</li>
-                        <li><i class="fas fa-check"></i> Versement de l'apport initial minimum 20% du coût TTC de la villa</li>
+                        <li><i class="fas fa-check"></i> Versement de l'apport initial minimum 20% du coût TTC</li>
                         <li><i class="fas fa-check"></i> Signature du contrat de réservation</li>
                         <li><i class="fas fa-check"></i> Paiement du solde par crédit bancaire ou par tempérament</li>
                         <li><i class="fas fa-check"></i> Durée de construction : 24 mois</li>
                     </ul>
                 </div>
-                
                 <div class="conditions-garanties" data-aos="fade-left">
                     <h3><i class="fas fa-shield-alt"></i> Nos Garanties</h3>
                     <ul class="garanties-list">
-                        <li><i class="fas fa-check-circle"></i> Terrain avec ACD (Attestation de Droit d'Usage Coutumier)</li>
+                        <li><i class="fas fa-check-circle"></i> Terrain avec ACD</li>
                         <li><i class="fas fa-check-circle"></i> Assainissement réalisé à 100%</li>
                         <li><i class="fas fa-check-circle"></i> Revêtements réalisés à 100%</li>
                         <li><i class="fas fa-check-circle"></i> Adduction eau potable réalisée à 100%</li>
                         <li><i class="fas fa-check-circle"></i> Électrification et téléphonie réalisées à 100%</li>
-                        <li><i class="fas fa-check-circle"></i> Bureau de contrôle et de vérification des matériaux</li>
-                        <li><i class="fas fa-check-circle"></i> Assurance garantie intrinsèque de fin d'achèvement</li>
-                        <li><i class="fas fa-check-circle"></i> Équipes managériales expérimentées et professionnelles</li>
+                        <li><i class="fas fa-check-circle"></i> Bureau de contrôle des matériaux</li>
+                        <li><i class="fas fa-check-circle"></i> Assurance garantie intrinsèque</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION 8: INVESTISSEMENT SÉCURISÉ À N'ZIANOUAN ===== -->
+    <!-- ===== SECTION INVESTISSEMENT ===== -->
     <section id="investissement">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
                 <h2>Investissement Sécurisé</h2>
-                <p>Terrains en vente à N'Zianouan - 120 km d'Abidjan sur l'autoroute du Nord</p>
+                <p>Terrains en vente à N'Zianouan - 120 km d'Abidjan</p>
             </div>
-            
             <div class="investissement-content" data-aos="fade-up">
                 <div class="investissement-card">
                     <div class="investissement-header">
                         <h3>N'Zianouan</h3>
                         <p class="sous-titre">Sur l'autoroute du Nord - 120 km d'Abidjan</p>
                     </div>
-                    
                     <div class="investissement-details">
                         <div class="detail-localisation">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>À 1h d'Abidjan et 30mn de Yamoussoukro</span>
                         </div>
-                        
                         <div class="detail-prix">
                             <span class="label">Prix spécial</span>
                             <span class="valeur">500 m² <strong>1.750.000 FCFA</strong></span>
                         </div>
-                        
                         <div class="badce-statut">
                             <span class="badge-vert">APPROBATION & VIABILISATION EN COURS</span>
                         </div>
-                        
                         <div class="paiement-info">
                             <h4><i class="fas fa-credit-card"></i> Facilités de paiement</h4>
-                            <p>Payable en <strong>12 mensualités</strong></p>
-                            <p><strong>Apport initial : 20%</strong></p>
+                            <p>Payable en <strong>12 mensualités</strong> - Apport initial <strong>20%</strong></p>
                         </div>
-                        
-                        <div class="documents-inclus">
-                            <h4><i class="fas fa-file-alt"></i> Dossier complet inclus :</h4>
-                            <ul>
-                                <li><i class="fas fa-check-circle"></i> Dossier technique</li>
-                                <li><i class="fas fa-check-circle"></i> Attestation de Droit d'Usage Coutumier (ADUC fourni par le Ministère de la Construction)</li>
-                                <li><i class="fas fa-check-circle"></i> Compulsoire</li>
-                                <li><i class="fas fa-check-circle"></i> Encadrement de bornes</li>
-                                <li><i class="fas fa-check-circle"></i> Plaques de noms</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="frais-dossier">
-                            <p><strong>Frais de dossier : 75.000 FCFA</strong></p>
-                        </div>
-                        
-                        <a href="https://wa.me/2250707452529?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20les%20terrains%20%C3%A0%20N'Zianouan%20(500m%C2%B2%20%C3%A0%201.750.000%20FCFA).%20Merci%20de%20me%20donner%20plus%20d'informations." 
-                           class="btn btn-whatsapp" 
-                           target="_blank">
+                        <a href="https://wa.me/2250707452529?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20les%20terrains%20%C3%A0%20N'Zianouan" class="btn btn-whatsapp" target="_blank">
                             <i class="fab fa-whatsapp"></i> Je réserve mon terrain
                         </a>
                     </div>
@@ -392,7 +354,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 9: NOTRE ÉQUIPE ===== -->
+    <!-- ===== SECTION ÉQUIPE ===== -->
     <section id="equipe">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -401,27 +363,17 @@
             </div>
             <div class="team-grid">
                 <div class="team-member" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member-img">
-                        <img src="PHOTO-2026-02-12-16-19-04.jpg" 
-                             alt="Directeur Général OLEA IMMOBILIER">
-                    </div>
+                    <div class="member-img"><img src="PHOTO-2026-02-12-16-19-04.jpg" alt="YORO Saky Franck Olivier"></div>
                     <h4>YORO Saky Franck Olivier</h4>
                     <p>Directeur Général</p>
-                    <span class="member-desc"></span>
                 </div>
                 <div class="team-member" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member-img">
-                        <img src="PHOTO-2026-02-23-16-47-54.jpg" 
-                             alt="Responsable Commercial OLEA IMMOBILIER">
-                    </div>
+                    <div class="member-img"><img src="PHOTO-2026-02-23-16-47-54.jpg" alt="SIDIBE Grace Olive Cindy"></div>
                     <h4>SIDIBE Grace Olive Cindy</h4>
                     <p>Assistante Commerciale et Marketing</p>
                 </div>
                 <div class="team-member" data-aos="fade-up" data-aos-delay="300">
-                    <div class="member-img">
-                        <img src="https://ui-avatars.com/api/?name=ESSE+Aya+Anna&background=FDB913&color=fff&size=200&length=2&font-size=0.50" 
-                             alt="Directeur Technique OLEA IMMOBILIER">
-                    </div>
+                    <div class="member-img"><img src="https://ui-avatars.com/api/?name=ESSE+Aya+Anna&background=FDB913&color=fff&size=200" alt="ESSE Aya Anna"></div>
                     <h4>ESSE Aya Anna</h4>
                     <p>Conductrice de travaux Technique</p>
                 </div>
@@ -429,7 +381,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 10: GALERIE PHOTOS ===== -->
+    <!-- ===== SECTION GALERIE - CARROUSEL ===== -->
     <section id="galerie">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -438,19 +390,22 @@
             </div>
         </div>
         
-        <div class="main">
-            <div class="mainBoxes fs"></div>
-            <div class="mainClose">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" fill="none">
-                    <circle cx="30" cy="30" r="30" fill="#000" opacity="0.4" />
-                    <path d="M15,16L45,46 M45,16L15,46" stroke="#000" stroke-width="3.5" opacity="0.5" />
-                    <path d="M15,15L45,45 M45,15L15,45" stroke="#fff" stroke-width="2" />
-                </svg>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-41-2.jpg" alt="Réalisation 1"></div>
+                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-41-3.jpg" alt="Réalisation 2"></div>
+                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-41.jpg" alt="Réalisation 3"></div>
+                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-42-3.jpg" alt="Réalisation 4"></div>
+                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-43-2.jpg" alt="Réalisation 5"></div>
+                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-43.jpg" alt="Réalisation 6"></div>
             </div>
+            <button class="carousel-btn carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-dots"></div>
         </div>
     </section>
 
-    <!-- ===== SECTION 11: CARTE GOOGLE MAPS ===== -->
+    <!-- ===== SECTION MAP ===== -->
     <section id="map-section">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -459,16 +414,7 @@
             </div>
         </div>
         <div class="map-container" data-aos="fade-up">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4199.7402212927755!2d-3.9245398247674905!3d5.391336994587691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19340c9ad7511%3A0xb95fcb6e66ec09d1!2sGroupe%20Olea%20global%20services!5e1!3m2!1sfr!2sci!4v1771344432452!5m2!1sfr!2sci" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Siège Groupe OLEA Global Services à Angré Djorobité">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4199.7402212927755!2d-3.9245398247674905!3d5.391336994587691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19340c9ad7511%3A0xb95fcb6e66ec09d1!2sGroupe%20Olea%20global%20services!5e1!3m2!1sfr!2sci!4v1771344432452!5m2!1sfr!2sci" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             <div class="map-overlay">
                 <span><i class="fas fa-map-pin"></i> Angré Djorobité, Abidjan</span>
                 <a href="https://maps.google.com/?q=Groupe+Olea+global+services+Abidjan" target="_blank" class="btn btn-small">Itinéraire</a>
@@ -476,23 +422,16 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 12: FOOTER + CONTACT ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer id="contact">
         <div class="container">
             <div class="contact-container">
-                <!-- Formulaire de contact -->
                 <div class="contact-form-wrapper" data-aos="fade-right">
                     <h3>Écrivez-nous</h3>
                     <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Votre nom complet" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Votre adresse e-mail" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Votre téléphone (WhatsApp de préférence)" required>
-                        </div>
+                        <div class="form-group"><input type="text" placeholder="Votre nom complet" required></div>
+                        <div class="form-group"><input type="email" placeholder="Votre adresse e-mail" required></div>
+                        <div class="form-group"><input type="tel" placeholder="Votre téléphone (WhatsApp)" required></div>
                         <div class="form-group">
                             <select required>
                                 <option value="" disabled selected>Type de projet</option>
@@ -504,44 +443,18 @@
                                 <option value="autre">Autre</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <textarea rows="4" placeholder="Décrivez votre projet ou votre demande..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <i class="fas fa-paper-plane"></i> Envoyer
-                        </button>
+                        <div class="form-group"><textarea rows="4" placeholder="Décrivez votre projet..."></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
                     </form>
                 </div>
-                
-                <!-- Coordonnées & Adresse -->
                 <div class="contact-info" data-aos="fade-left">
                     <h3>OLEA IMMOBILIER</h3>
                     <p class="slogan-footer">Expert Promoteur Immobilier</p>
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+225 07 07 45 25 29</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+225 07 08 18 56 33</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>infos@groupoleaglobal.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <span>www.groupoleaglobal.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Angré Djorobité, Abidjan, Côte d'Ivoire</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Lun-Ven: 8h30 – 17h30 | Sam: 9h-13h</span>
-                        </div>
+                        <div class="contact-item"><i class="fas fa-phone-alt"></i><span>+225 07 07 45 25 29</span></div>
+                        <div class="contact-item"><i class="fas fa-phone-alt"></i><span>+225 07 08 18 56 33</span></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><span>infos@groupoleaglobal.com</span></div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Angré Djorobité, Abidjan</span></div>
                     </div>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -550,23 +463,17 @@
                     </div>
                 </div>
             </div>
-            
             <div class="legal-mentions">
                 <p><strong>Promoteur Immobilier Agréé</strong> - Arrêté N° 23-00085/MCLU/DGLCV/CAPPI/Olga DU 10 OCTOBRE 2023</p>
-                <p><i class="fas fa-certificate"></i> La confiance gage de sérénité</p>
             </div>
-            
             <div class="copyright">
-                <p>© 2026 OLEA IMMOBILIER – Une branche du Groupe OLEA Global Services SARL – Tous droits réservés. | <a href="#hero">Mentions légales</a></p>
+                <p>© 2026 OLEA IMMOBILIER – Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- BOUTON WHATSAPP FLOTTANT -->
-    <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20souhaite%20obtenir%20des%20informations%20sur%20vos%20programmes." 
-       class="whatsapp-float" 
-       target="_blank"
-       aria-label="Contacter OLEA IMMOBILIER sur WhatsApp">
+    <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
