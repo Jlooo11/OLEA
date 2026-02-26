@@ -14,8 +14,8 @@
     
     <title>OLEA IMMOBILIER | Promoteur Immobilier Agréé - Cité OLEA Songon & N'Zianouan</title>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery (utile pour plus tard, mais on va faire en JS pur) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
     
     <!-- Polices Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,10 +35,12 @@
         <div class="container navbar">
             <div class="logo-group">
                 <div class="logo logo-groupe">
+                    <!-- Chemin vers votre logo Groupe OLEA Global Services -->
                     <img src="LOGO- OLEA GLOBAL SERVICES-01.jpg.jpg" alt="Groupe OLEA Global Services">
                 </div>
                 <div class="logo-separator"></div>
                 <div class="logo logo-immobilier">
+                    <!-- Chemin vers votre logo OLEA IMMOBILIER -->
                     <img src="img/WhatsApp Image 2026-01-20 at 11.45.01.jpg" alt="OLEA IMMOBILIER">
                 </div>
             </div>
@@ -49,7 +51,7 @@
                     <li><a href="#services" class="nav-link">Expertise</a></li>
                     <li><a href="#programmes" class="nav-link">Programmes</a></li>
                     <li><a href="#equipe" class="nav-link">Équipe</a></li>
-                    <li><a href="#galerie" class="nav-link">Réalisations</a></li>
+                    <li><a href="#realisations" class="nav-link">Réalisations</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -59,14 +61,19 @@
         </div>
     </header>
 
-    <!-- ===== SECTION HERO AVEC FILIGRANE ===== -->
+    <!-- ===== SECTION HERO AVEC CAROUSEL ===== -->
     <section id="hero">
-        <div class="hero-background"></div>
+        <!-- Carousel d'images de fond -->
+        <div class="hero-carousel">
+            <div class="carousel-slide-hero active" style="background-image: url('PHOTO-2026-02-17-15-16-51-2.jpg');"></div>
+            <div class="carousel-slide-hero" style="background-image: url('PHOTO-2026-02-17-15-16-51.jpg');"></div>
+            <div class="carousel-slide-hero" style="background-image: url('VILLA 3P 2.jpg');"></div>
+            <!-- Ajoutez ici autant de slides que vous le souhaitez. IMPORTANT: Placez vos images hero-1.jpg, hero-2.jpg, hero-3.jpg dans le dossier "img" -->
+        </div>
         <div class="hero-filigrane"></div>
         <div class="container hero-content" data-aos="fade-up" data-aos-duration="1200">
             <h1>Bâtir votre avenir,<br>un terrain et un logement à la fois.</h1>
             <p>Expertise en aménagement foncier et promotion immobilière par le <strong>Groupe OLEA Global Services</strong>, Promoteur Immobilier Agréé.</p>
-            <p class="hero-agrement"><i class="fas fa-certificate"></i> Arrêté N° 23-00085/MCLU/DGLCV/CAPPI/Olga DU 10 OCTOBRE 2023</p>
             <a href="#programmes" class="btn btn-primary btn-large">
                 <i class="fas fa-arrow-down"></i> Découvrir nos programmes immobiliers
             </a>
@@ -145,86 +152,112 @@
         </div>
     </section>
 
-    <!-- ===== SECTION PROGRAMMES AVEC BOUTONS FICHE TECHNIQUE ===== -->
+    <!-- ===== SECTION PROGRAMMES (AVEC DONNÉES DES PDF) ===== -->
     <section id="programmes">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
-                <h2>Nos programmes "CITE OLEA 1 en cours"</h2>
-                <p>Des opportunités exclusives à Songon Kassemble</p>
+                <h2>Nos programmes "CITE OLEA 1"</h2>
+                <p>Des opportunités exclusives à Songon Kassemble et N'Zianouan</p>
             </div>
             <div class="programmes-grid">
-                <!-- Programme 1 -->
-                <article class="programme-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="programme-img-container">
-                        <img src="PHOTO-2026-02-17-15-16-51-2.jpg" alt="Villa basse 3 pièces" class="programme-img" loading="lazy">
-                        <span class="badge">Économique</span>
-                    </div>
-                    <div class="programme-content">
-                        <h3>Villa basse 3 pièces</h3>
-                        <p><i class="fas fa-location-dot"></i> Cité OLEA - Songon Kassemble</p>
-                        <p class="programme-description">Surface terrain 200 m² | Séjour/Salle à manger, cuisine, 2 chambres, salle d'eau, terrasse.</p>
-                        <div class="programme-features">
-                            <span><i class="fas fa-bed"></i> 2 ch.</span>
-                            <span><i class="fas fa-bath"></i> 1 bain</span>
-                            <span><i class="fas fa-ruler-combined"></i> 82,42 m²</span>
-                        </div>
-                        <div class="programme-buttons">
-                            <a href="fiche-technique-villa-3p.pdf" download class="btn btn-tech">
-                                <i class="fas fa-file-pdf"></i> Fiche technique
-                            </a>
-                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20basse%203%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
-                                <i class="fab fa-whatsapp"></i> Réserver
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Programme 2 -->
+                <!-- Programme 2: Villa Basse 5 Pièces (données du PDF) -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="programme-img-container">
-                        <img src="PHOTO-2026-02-17-15-16-51.jpg" alt="Villa basse 4 pièces" class="programme-img" loading="lazy">
+                        <img src="villa-basse-5p.jpg" alt="Villa Basse 5 pièces" class="programme-img" loading="lazy">
                         <span class="badge">Moyen standing</span>
                     </div>
                     <div class="programme-content">
-                        <h3>Villa basse 4 pièces</h3>
-                        <p><i class="fas fa-location-dot"></i> Cité OLEA - N'Zianouan</p>
-                        <p class="programme-description">Surface terrain 250 m² | Séjour/Salle à manger (42,86 m²), cuisine, 3 chambres, 3 salles de bain, terrasses.</p>
-                        <div class="programme-features">
-                            <span><i class="fas fa-bed"></i> 3 ch.</span>
-                            <span><i class="fas fa-bath"></i> 3 bains</span>
-                            <span><i class="fas fa-ruler-combined"></i> 132,63 m²</span>
+                        <h3>Villa Basse 5 pièces</h3>
+                        <p><i class="fas fa-location-dot"></i> Cité OLEA - Songon Kassemble</p>
+                        <p class="programme-description">Confort et espace de plain-pied.</p>
+                         <!-- Données extraites de ESQUISSE DEF 5P B.pdf -->
+                        <div class="programme-surfaces">
+                            <h4>Surfaces :</h4>
+                            <ul>
+                                <li><span>Séjour:</span> 30,94 m²</li>
+                                <li><span>Cuisine:</span> 8,25 m²</li>
+                                <li><span>Chambre 01:</span> 14,80 m²</li>
+                                <li><span>Chambre 02:</span> 14,03 m²</li>
+                                <li><span>Chambre 03:</span> 11,88 m²</li>
+                                <li><span>Salle d'eau 01:</span> 5,50 m²</li>
+                                <li><span>Salle d'eau 02:</span> 3,66 m²</li>
+                            </ul>
+                             <p class="surface-totale"><strong>Surface habitable totale:</strong> 88,26 m²</p>
                         </div>
                         <div class="programme-buttons">
-                            <a href="fiche-technique-villa-4p.pdf" download class="btn btn-tech">
+                            <a href="ESQUISSE DEF 5P B.pdf" download class="btn btn-tech">
                                 <i class="fas fa-file-pdf"></i> Fiche technique
                             </a>
-                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20basse%204%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
+                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20Basse%205%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i> Réserver
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Programme 3 -->
+                <!-- Programme 3: Villa Duplex 4 Pièces (données des PDF) -->
                 <article class="programme-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="programme-img-container">
-                        <img src="PHOTO-2026-02-17-15-16-52.jpg" alt="Villa Duplex 4 pièces" class="programme-img" loading="lazy">
+                        <img src="09 VILLA DUPLEX 4 PIECES-2.pdf" alt="Villa Duplex 4 pièces" class="programme-img" loading="lazy">
                         <span class="badge">Haut standing</span>
                     </div>
                     <div class="programme-content">
                         <h3>Villa Duplex 4 pièces</h3>
-                        <p><i class="fas fa-location-dot"></i> Cité OLEA - N'Zianouan</p>
-                        <p class="programme-description">Surface terrain 300 m² | RDC (145,10 m²) + Étage (130,15 m²), 3 chambres, dressing, 3 sdb, grands balcons.</p>
-                        <div class="programme-features">
-                            <span><i class="fas fa-bed"></i> 3 ch.</span>
-                            <span><i class="fas fa-bath"></i> 3 bains</span>
-                            <span><i class="fas fa-ruler-combined"></i> 275,25 m²</span>
+                        <p><i class="fas fa-location-dot"></i> Cité OLEA - N'Zianouan / Songon</p>
+                        <p class="programme-description">Le "MUST" de l'immobilier, design et générosité des espaces.</p>
+                        <!-- Données extraites de 09 VILLA DUPLEX 4 PIECES-2.pdf et doc-3 catalogue -->
+                        <div class="programme-surfaces">
+                            <h4>Surfaces (RDC + Étage) :</h4>
+                            <ul>
+                                <li><span>Séjour:</span> 71,18 m²</li>
+                                <li><span>Cuisine:</span> 12,67 m²</li>
+                                <li><span>Terrasse:</span> 24,54 / 7,50 m²</li>
+                                <li><span>Garage:</span> 25,60 m²</li>
+                                <li><span>Chambre principale:</span> 32,19 m² + dressing 11,02 m²</li>
+                                <li><span>Chambre 2:</span> 25,91 m²</li>
+                                <li><span>Chambre 3:</span> 17,44 m²</li>
+                            </ul>
+                            <p class="surface-totale"><strong>Surface habitable totale:</strong> 275,25 m²</p>
                         </div>
                         <div class="programme-buttons">
-                            <a href="fiche-technique-duplex-4p.pdf" download class="btn btn-tech">
+                            <a href="09 VILLA DUPLEX 4 PIECES-2.pdf" download class="btn btn-tech">
                                 <i class="fas fa-file-pdf"></i> Fiche technique
                             </a>
                             <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20Duplex%204%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Réserver
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Programme 4: Villa Basse 3 Pièces (données des PDF) -->
+                <article class="programme-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="programme-img-container">
+                        <img src="villa-basse-3p.jpg" alt="Villa Basse 3 pièces" class="programme-img" loading="lazy">
+                        <span class="badge">Économique</span>
+                    </div>
+                    <div class="programme-content">
+                        <h3>Villa Basse 3 pièces</h3>
+                        <p><i class="fas fa-location-dot"></i> Cité OLEA - Songon Kassemble</p>
+                        <p class="programme-description">Idéal pour primo-accédant, fonctionnel et moderne.</p>
+                         <!-- Données extraites de 07 VILLA BASSE 3 PIECES-2.pdf -->
+                        <div class="programme-surfaces">
+                            <h4>Surfaces :</h4>
+                            <ul>
+                                <li><span>Séjour:</span> 20,39 m²</li>
+                                <li><span>Cuisine:</span> 10,05 m²</li>
+                                <li><span>Chambre 01:</span> 12,92 m²</li>
+                                <li><span>Chambre 02:</span> 12,53 m²</li>
+                                <li><span>Salle d'eau:</span> 3,92 m²</li>
+                                <li><span>Terrasse:</span> 6,51 m²</li>
+                            </ul>
+                             <p class="surface-totale"><strong>Surface habitable totale:</strong> 82,42 m²</p>
+                        </div>
+                        <div class="programme-buttons">
+                            <a href="07 VILLA BASSE 3 PIECES-2.pdf" download class="btn btn-tech">
+                                <i class="fas fa-file-pdf"></i> Fiche technique
+                            </a>
+                            <a href="https://wa.me/2250707452529?text=Bonjour%20Olea%20Immobilier%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20Villa%20Basse%203%20pi%C3%A8ces" target="_blank" class="btn btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i> Réserver
                             </a>
                         </div>
@@ -316,7 +349,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION INVESTISSEMENT ===== -->
+    <!-- ===== SECTION INVESTISSEMENT (N'ZIANOUAN) ===== -->
     <section id="investissement">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
@@ -405,23 +438,24 @@
         </div>
     </section>
 
-    <!-- ===== SECTION GALERIE - CARROUSEL ===== -->
-    <section id="galerie">
+    <!-- ===== SECTION RÉALISATIONS (CARROUSEL + PLANS) ===== -->
+    <section id="realisations">
         <div class="container">
             <div class="section-title" data-aos="fade-down">
-                <h2>Nos réalisations</h2>
-                <p>Chantiers en cours et projets achevés</p>
+                <h2>Nos Réalisations</h2>
+                <p>Chantiers en cours, projets achevés et plans techniques</p>
             </div>
         </div>
-        
-        <div class="carousel-container">
+
+        <!-- Galerie Photos (Carrousel) -->
+        <div class="carousel-container" data-aos="fade-up">
             <div class="carousel-track">
-                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-41-2.jpg" alt="Réalisation 1"></div>
-                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-41-3.jpg" alt="Réalisation 2"></div>
-                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-41.jpg" alt="Réalisation 3"></div>
-                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-42-3.jpg" alt="Réalisation 4"></div>
-                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-43-2.jpg" alt="Réalisation 5"></div>
-                <div class="carousel-slide"><img src="img/PHOTO-2026-02-17-16-33-43.jpg" alt="Réalisation 6"></div>
+                <!-- Placez vos images "VUE 01", "VUE 02"... ici -->
+                <div class="carousel-slide"><img src="VILLA 3P 1.jpg" alt="Réalisation 1"></div>
+                <div class="carousel-slide"><img src="VILLA 3P 4.jpg" alt="Réalisation 2"></div>
+                <div class="carousel-slide"><img src="VILLA 3P 3.jpg" alt="Réalisation 3"></div>
+                <div class="carousel-slide"><img src="VILLA 3P 2.jpg" alt="Réalisation 4"></div>
+                <div class="carousel-slide"><img src="VILLA 3P 5.jpg" alt="Réalisation 5"></div>
             </div>
             <button class="carousel-btn carousel-prev"><i class="fas fa-chevron-left"></i></button>
             <button class="carousel-btn carousel-next"><i class="fas fa-chevron-right"></i></button>

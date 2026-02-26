@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // Initialisation AOS
+    // Initialisation AOS (Animate On Scroll)
     AOS.init({
         duration: 1000,
         once: false,
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Empêche le scroll
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ===== HEADER DYNAMIQUE =====
+    // ===== HEADER DYNAMIQUE (changement au scroll) =====
     function handleHeaderScroll() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll();
 
-    // ===== LIENS ACTIFS =====
+    // ===== LIENS ACTIFS (surligner la section courante) =====
     const sections = document.querySelectorAll('section[id]');
     
     function updateActiveLink() {
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
             submitBtn.disabled = true;
             
-            // Simulation d'envoi
+            // Simulation d'envoi (remplacer par un vrai fetch plus tard)
             setTimeout(() => {
                 showNotification('✅ Message envoyé avec succès !', 'success');
                 contactForm.reset();
@@ -137,8 +137,26 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => notification.remove(), 3000);
     }
 
-    // ===== CARROUSEL =====
-    function initCarousel() {
+    // ===== CARROUSEL HERO =====
+    function initHeroCarousel() {
+        const slides = document.querySelectorAll('.carousel-slide-hero');
+        if (slides.length === 0) return;
+        
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Changer d'image toutes les 5 secondes
+        setInterval(nextSlide, 5000);
+    }
+    initHeroCarousel();
+
+    // ===== CARROUSEL RÉALISATIONS (avec support mobile) =====
+    function initRealisationsCarousel() {
         const track = document.querySelector('.carousel-track');
         const slides = document.querySelectorAll('.carousel-slide');
         const prevBtn = document.querySelector('.carousel-prev');
@@ -148,75 +166,123 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!track || !slides.length) return;
         
         let currentIndex = 0;
-        const slideWidth = slides[0].offsetWidth + 20; // 20px de gap
-        const slidesToShow = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-        const maxIndex = Math.max(0, slides.length - slidesToShow);
         
-        // Créer les dots
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i <= maxIndex; i++) {
-            const dot = document.createElement('button');
-            dot.classList.add('carousel-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
+        // Fonction pour calculer la largeur et le nombre de slides à afficher
+        function getCarouselDimensions() {
+            const slide = slides[0];
+            const slideStyle = window.getComputedStyle(slide);
+            const slideWidth = slide.offsetWidth;
+            const gap = 20; // Doit correspondre au gap dans le CSS
+            return { slideWidth, gap };
         }
         
-        const dots = document.querySelectorAll('.carousel-dot');
+        function getSlidesToShow() {
+            if (window.innerWidth > 1024) return 3;
+            if (window.innerWidth > 768) return 2;
+            return 1;
+        }
         
-        function goToSlide(index) {
-            currentIndex = Math.max(0, Math.min(index, maxIndex));
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        function updateCarousel() {
+            const { slideWidth, gap } = getCarouselDimensions();
+            const slidesToShow = getSlidesToShow();
+            const maxIndex = Math.max(0, slides.length - slidesToShow);
+            
+            // S'assurer que currentIndex est dans les limites
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            
+            // Déplacer le track
+            track.style.transform = `translateX(-${currentIndex * (slideWidth + gap)}px)`;
             
             // Mettre à jour les dots
+            const dots = document.querySelectorAll('.carousel-dot');
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIndex);
             });
         }
         
+        function createDots() {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            const slidesToShow = getSlidesToShow();
+            const maxIndex = Math.max(0, slides.length - slidesToShow);
+            
+            for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
         function nextSlide() {
-            goToSlide(currentIndex + 1);
+            const slidesToShow = getSlidesToShow();
+            const maxIndex = Math.max(0, slides.length - slidesToShow);
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+            } else {
+                // Optionnel : retour au début
+                // currentIndex = 0;
+                // updateCarousel();
+            }
         }
         
         function prevSlide() {
-            goToSlide(currentIndex - 1);
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
         }
         
+        // Initialisation
+        createDots();
+        updateCarousel();
+        
+        // Event listeners
         if (prevBtn) prevBtn.addEventListener('click', prevSlide);
         if (nextBtn) nextBtn.addEventListener('click', nextSlide);
         
-        // Défilement automatique
+        // Défilement automatique (optionnel)
         let autoplayInterval = setInterval(nextSlide, 5000);
         
-        // Pause au survol
         track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
         track.addEventListener('mouseleave', () => {
             autoplayInterval = setInterval(nextSlide, 5000);
         });
         
-        // Recalculer au redimensionnement
+        // Recalculer au redimensionnement (debounce pour performance)
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            const newSlidesToShow = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-            const newMaxIndex = Math.max(0, slides.length - newSlidesToShow);
-            const newSlideWidth = slides[0].offsetWidth + 20;
-            
-            if (currentIndex > newMaxIndex) {
-                goToSlide(newMaxIndex);
-            } else {
-                track.style.transform = `translateX(-${currentIndex * newSlideWidth}px)`;
-            }
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                createDots(); // Recalculer le nombre de dots
+                updateCarousel();
+            }, 150);
         });
     }
 
-    // Initialiser le carrousel
-    initCarousel();
+    // Initialiser le carrousel des réalisations
+    initRealisationsCarousel();
 
-    // ===== EFFET DE PARALLAXE SUR LE HERO =====
+    // ===== EFFET DE PARALLAXE SUR LE HERO (optionnel) =====
     window.addEventListener('scroll', function() {
-        const hero = document.querySelector('#hero .hero-background');
-        if (hero) {
+        const heroSlides = document.querySelectorAll('.carousel-slide-hero');
+        if (heroSlides.length > 0) {
             const scrolled = window.pageYOffset;
-            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            // Appliquer un léger effet de parallaxe sur l'image active
+            heroSlides.forEach(slide => {
+                if (slide.classList.contains('active')) {
+                    slide.style.transform = `translateY(${scrolled * 0.2}px)`;
+                } else {
+                    slide.style.transform = 'translateY(0)';
+                }
+            });
         }
     });
 
@@ -250,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     stats.forEach(stat => observer.observe(stat));
 
-    // ===== GESTION DU RESIZE =====
+    // ===== GESTION DU RESIZE (fermer le menu si on repasse en desktop) =====
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             navLinks.classList.remove('active');
@@ -263,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ===== LAZY LOADING DES IMAGES =====
+    // ===== LAZY LOADING DES IMAGES (effet de fondu) =====
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {
