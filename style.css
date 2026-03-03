@@ -269,7 +269,12 @@ section { padding: 100px 0; position: relative; }
 .team-member p { color: var(--bordeaux); font-weight: 600; }
 
 /* ===== RÉALISATIONS (Carrousel + Plans) ===== */
-#realisations { background: var(--gris-clair); overflow: hidden; }
+#realisations { 
+    background: var(--gris-clair); 
+    overflow: hidden; 
+    padding-bottom: 60px;
+}
+
 /* Carrousel */
 .carousel-container { 
     position: relative; 
@@ -279,35 +284,43 @@ section { padding: 100px 0; position: relative; }
     padding: 20px 0;
     width: 100%;
 }
+
 .carousel-track { 
     display: flex; 
     gap: 20px; 
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     will-change: transform;
-    padding: 0 20px; /* Ajout de padding pour éviter que les slides touchent les bords */
+    padding: 0 20px;
 }
+
 .carousel-slide { 
-    min-width: calc(33.333% - 13.333px); /* 3 slides par défaut */
-    height: 250px; 
+    flex: 0 0 calc(33.333% - 13.333px); /* Largeur fixe pour 3 slides */
+    height: 280px; 
     border-radius: 15px; 
     overflow: hidden; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
     transition: all 0.3s ease; 
-    flex-shrink: 0;
+    position: relative;
 }
-.carousel-slide:hover { 
-    transform: scale(1.02); 
-    box-shadow: 0 20px 40px rgba(201,37,44,0.15); 
-}
+
 .carousel-slide img { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; 
+    object-fit: cover; /* Maintient le ratio sans déformation */
+    object-position: center;
     transition: transform 0.5s ease; 
+    display: block;
 }
+
+.carousel-slide:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 20px 40px rgba(201,37,44,0.15); 
+}
+
 .carousel-slide:hover img { 
     transform: scale(1.05); 
 }
+
 .carousel-btn { 
     position: absolute; 
     top: 50%; 
@@ -326,23 +339,30 @@ section { padding: 100px 0; position: relative; }
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    opacity: 0.9;
 }
+
 .carousel-btn:hover { 
     background: var(--bleu); 
     transform: translateY(-50%) scale(1.1); 
+    opacity: 1;
 }
+
 .carousel-prev { 
     left: 10px; 
 }
+
 .carousel-next { 
     right: 10px; 
 }
+
 .carousel-dots { 
     display: flex; 
     justify-content: center; 
     gap: 12px; 
     margin-top: 30px; 
 }
+
 .carousel-dot { 
     width: 12px; 
     height: 12px; 
@@ -351,7 +371,9 @@ section { padding: 100px 0; position: relative; }
     border: none; 
     cursor: pointer; 
     transition: all 0.3s ease; 
+    padding: 0;
 }
+
 .carousel-dot.active { 
     background: var(--bordeaux); 
     transform: scale(1.2); 
@@ -362,7 +384,8 @@ section { padding: 100px 0; position: relative; }
 /* Responsive pour le carrousel */
 @media (max-width: 1024px) {
     .carousel-slide { 
-        min-width: calc(50% - 10px); /* 2 slides sur tablette */
+        flex: 0 0 calc(50% - 10px); /* 2 slides sur tablette */
+        height: 260px;
     }
 }
 
@@ -370,35 +393,46 @@ section { padding: 100px 0; position: relative; }
     .carousel-container {
         padding: 10px 0;
     }
+    
     .carousel-track {
         gap: 15px;
-        padding: 0 15px;
+        padding: 0 40px; /* Espace pour voir les bords des slides */
     }
+    
     .carousel-slide { 
-        min-width: calc(100% - 30px); /* 1 slide sur mobile avec espace */
-        height: 220px;
+        flex: 0 0 calc(100% - 30px); /* 1 slide sur mobile */
+        height: 240px;
     }
+    
     .carousel-btn {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
+    
     .carousel-prev { 
         left: 5px; 
     }
+    
     .carousel-next { 
         right: 5px; 
     }
 }
 
 @media (max-width: 480px) {
+    .carousel-track {
+        padding: 0 30px; /* Moins d'espace sur très petit écran */
+    }
+    
     .carousel-slide { 
-        min-width: calc(100% - 20px); /* 1 slide sur petit mobile */
+        flex: 0 0 calc(100% - 20px); /* 1 slide */
         height: 200px;
     }
-    .carousel-track {
-        gap: 10px;
-        padding: 0 10px;
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 }
 

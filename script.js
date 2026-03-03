@@ -155,117 +155,127 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     initHeroCarousel();
 
-    // ===== CARROUSEL RÉALISATIONS (avec support mobile) =====
-    function initRealisationsCarousel() {
-        const track = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const prevBtn = document.querySelector('.carousel-prev');
-        const nextBtn = document.querySelector('.carousel-next');
-        const dotsContainer = document.querySelector('.carousel-dots');
+    // ===== CARROUSEL RÉALISATIONS (version corrigée) =====
+function initRealisationsCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    
+    if (!track || !slides.length) return;
+    
+    let currentIndex = 0;
+    
+    // Fonction pour obtenir le nombre de slides à afficher
+    function getSlidesToShow() {
+        if (window.innerWidth > 1024) return 3;
+        if (window.innerWidth > 768) return 2;
+        return 1;
+    }
+    
+    // Fonction pour calculer la largeur d'un slide (incluant le gap)
+    function getSlideWidth() {
+        const slide = slides[0];
+        const slideWidth = slide.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(track).gap) || 20;
+        return slideWidth + gap;
+    }
+    
+    function updateCarousel() {
+        const slidesToShow = getSlidesToShow();
+        const maxIndex = Math.max(0, slides.length - slidesToShow);
         
-        if (!track || !slides.length) return;
-        
-        let currentIndex = 0;
-        
-        // Fonction pour calculer la largeur et le nombre de slides à afficher
-        function getCarouselDimensions() {
-            const slide = slides[0];
-            const slideStyle = window.getComputedStyle(slide);
-            const slideWidth = slide.offsetWidth;
-            const gap = 20; // Doit correspondre au gap dans le CSS
-            return { slideWidth, gap };
+        // S'assurer que currentIndex est dans les limites
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
         }
         
-        function getSlidesToShow() {
-            if (window.innerWidth > 1024) return 3;
-            if (window.innerWidth > 768) return 2;
-            return 1;
+        // Calculer le déplacement
+        const slideWidth = getSlideWidth();
+        const translateX = currentIndex * slideWidth;
+        track.style.transform = `translateX(-${translateX}px)`;
+        
+        // Mettre à jour les dots
+        updateDots();
+    }
+    
+    function createDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        const slidesToShow = getSlidesToShow();
+        const dotCount = Math.max(1, slides.length - slidesToShow + 1);
+        
+        for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Aller à la slide ${i + 1}`);
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel();
+            });
+            dotsContainer.appendChild(dot);
         }
         
-        function updateCarousel() {
-            const { slideWidth, gap } = getCarouselDimensions();
+        updateDots();
+    }
+    
+    function updateDots() {
+        const dots = document.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    function nextSlide() {
+        const slidesToShow = getSlidesToShow();
+        const maxIndex = Math.max(0, slides.length - slidesToShow);
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+    
+    // Initialisation
+    createDots();
+    updateCarousel();
+    
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    // Défilement automatique
+    let autoplayInterval = setInterval(nextSlide, 5000);
+    
+    // Pause au survol
+    track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    track.addEventListener('mouseleave', () => {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextSlide, 5000);
+    });
+    
+    // Recalculer au redimensionnement
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
             const slidesToShow = getSlidesToShow();
             const maxIndex = Math.max(0, slides.length - slidesToShow);
-            
-            // S'assurer que currentIndex est dans les limites
             if (currentIndex > maxIndex) {
                 currentIndex = maxIndex;
             }
-            
-            // Déplacer le track
-            track.style.transform = `translateX(-${currentIndex * (slideWidth + gap)}px)`;
-            
-            // Mettre à jour les dots
-            const dots = document.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentIndex);
-            });
-        }
-        
-        function createDots() {
-            if (!dotsContainer) return;
-            dotsContainer.innerHTML = '';
-            const slidesToShow = getSlidesToShow();
-            const maxIndex = Math.max(0, slides.length - slidesToShow);
-            
-            for (let i = 0; i <= maxIndex; i++) {
-                const dot = document.createElement('button');
-                dot.classList.add('carousel-dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    currentIndex = i;
-                    updateCarousel();
-                });
-                dotsContainer.appendChild(dot);
-            }
-        }
-        
-        function nextSlide() {
-            const slidesToShow = getSlidesToShow();
-            const maxIndex = Math.max(0, slides.length - slidesToShow);
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateCarousel();
-            } else {
-                // Optionnel : retour au début
-                // currentIndex = 0;
-                // updateCarousel();
-            }
-        }
-        
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        }
-        
-        // Initialisation
-        createDots();
-        updateCarousel();
-        
-        // Event listeners
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        
-        // Défilement automatique (optionnel)
-        let autoplayInterval = setInterval(nextSlide, 5000);
-        
-        track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-        track.addEventListener('mouseleave', () => {
-            autoplayInterval = setInterval(nextSlide, 5000);
-        });
-        
-        // Recalculer au redimensionnement (debounce pour performance)
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                createDots(); // Recalculer le nombre de dots
-                updateCarousel();
-            }, 150);
-        });
-    }
+            createDots(); // Recréer les dots
+            updateCarousel();
+        }, 150);
+    });
+}
 
     // Initialiser le carrousel des réalisations
     initRealisationsCarousel();
